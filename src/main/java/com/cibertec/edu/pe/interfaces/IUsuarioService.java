@@ -12,6 +12,6 @@ import com.cibertec.edu.pe.modelo.Usuario;
  */
 public interface IUsuarioService extends IGenericService<Usuario, Long>{
 
-     
+     Usuario findByEmail(String email);
     
 }

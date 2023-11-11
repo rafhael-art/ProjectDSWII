@@ -34,6 +34,8 @@ public class Usuario {
     private String NumeroDocumento;
     private String Direccion;
     private int Edad;
+    private String password;
+    private String email;
   
     
     @OneToOne(cascade = CascadeType.ALL)
@@ -43,13 +45,10 @@ public class Usuario {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "IdUbigeo", referencedColumnName = "Id")
     private Ubigeo ubigeo;
-    
-    
-    @ManyToMany
-    @JoinTable(name  = "User_roles", 
-    joinColumns = @JoinColumn(name = "UserId", referencedColumnName = "Id"), 
-    inverseJoinColumns = @JoinColumn(name = "RolId",referencedColumnName = "Id"))
-    private Set<Rol> roles;
+       
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "IdRol", referencedColumnName = "Id")
+    private Rol rol;
     
     
     @ManyToMany

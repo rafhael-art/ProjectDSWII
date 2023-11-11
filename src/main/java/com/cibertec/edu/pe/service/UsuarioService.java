@@ -67,4 +67,14 @@ public class UsuarioService implements IUsuarioService{
             throw  new Exception(e.getMessage());
         }
     }
+
+    @Override
+    public Usuario findByEmail(String email) {
+        try {
+            var user =  _repository.findByEmail(email);
+            return user;
+        } catch (Exception e) {
+            return null;
+        }
+    }
 }
